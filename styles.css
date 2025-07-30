@@ -1,0 +1,207 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+  color: #f2f2f2;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: #0a0a0a;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  font-size: 2.2rem;
+  color: #FFA500;
+  font-weight: 800;
+  text-shadow: 0 0 12px #FFA500aa;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #FFA500;
+  text-shadow: 0 0 8px #FFA50099;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(10, 10, 10, 0.9)),
+    url('banner.avif') center/cover no-repeat;
+  border-radius:12px;
+  text-align: center;
+  padding: 6rem 2rem;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  text-shadow: 0 0 20px #000;
+  color: #FFA500;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  opacity: 0.9;
+}
+
+/* Sections */
+section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+}
+
+/* Card Style */
+.card {
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid #2c2c2c;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  font-size: 2rem;
+  color: #FFA500;
+  margin-bottom: 1rem;
+  border-left: 4px solid #FFA500;
+  padding-left: 1rem;
+}
+
+/* Tournament Section */
+.tournament ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.tournament ul li::before {
+  content: "🔥 ";
+  margin-right: 0.5rem;
+}
+
+.tournament button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background: linear-gradient(to right, #FFA500, #FF8C00);
+  border: none;
+  border-radius: 8px;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #FF8C00aa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tournament button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #FF8C00cc;
+}
+
+/* Form Section */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+input {
+  padding: 0.9rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #1c1c1c;
+  color: #f0f0f0;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border: 1px solid #FFA500;
+  outline: none;
+}
+
+.register button {
+  background: linear-gradient(to right, #FFA500, #FF8C00);
+  color: #111;
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register button:hover {
+  background: #FFB84D;
+}
+
+#formMessage {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #00ff9d;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0a0a0a;
+  color: #888;
+  font-size: 0.9rem;
+  border-top: 1px solid #2c2c2c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}

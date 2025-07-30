@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pharaozzz Esports</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="logo">Pharaozzz</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#tournament">Tournament</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Pharaozzz Esports</h1>
+    <p>From the Sand, To the summit.</p>
+  </section>
+
+  <section id="about" class="about card">
+    <h2>About Pharaozzz</h2>
+    <p>
+      Pharaozzz is a rising force in the global esports scene. Our mission is to cultivate elite gaming talent and host top-tier tournaments that challenge players to be their best. We bring together competition, culture, and community under one banner — the crown of the Pharaoh.
+    </p>
+  </section>
+
+  <section id="tournament" class="tournament card">
+    <h2>"Be a Pharaoh" Tournament</h2>
+    <p>
+      Enter the arena of champions in our latest event: <strong>"Be a Pharaoh"</strong>. Compete in top titles like Valorant, League of Legends, and CS2 for a chance to win glory and a $10,000 prize pool.
+    </p>
+    <ul>
+      <li>📅 Date: September 20–22, 2025</li>
+      <li>📍 Online & Live Finals in Cairo</li>
+      <li>🏆 $10,000 Prize Pool</li>
+      <li>🎮 Featured Games: Valorant, LoL, CS2</li>
+    </ul>
+    <button onclick="scrollToRegister()">Register Now</button>
+  </section>
+
+  <section id="register" class="register card">
+    <h2>Register Your Team</h2>
+    <form id="registrationForm">
+      <input type="text" placeholder="Team Name" required />
+      <input type="email" placeholder="Team Email" required />
+      <input type="text" placeholder="Game Title" required />
+      <button type="submit">Submit</button>
+    </form>
+    <p id="formMessage"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pharaozzz Esports. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
