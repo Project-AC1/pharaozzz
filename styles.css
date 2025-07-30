@@ -1,14 +1,16 @@
-/* Root Variables for Easy Theming */
+/* Root Variables for Theming */
 :root {
   --bg-dark: #0d0d0d;
-  --bg-darker: #0a0a0a;
+  --bg-darker: #080808;
   --text-light: #f2f2f2;
-  --accent: #FFA500;
-  --accent-dark: #FF8C00;
-  --accent-light: #FFB84D;
-  --glass: rgba(30, 30, 30, 0.8);
+  --accent: #ffcc00;
+  --accent-mid: #ffb700;
+  --accent-dark: #ff9900;
+  --accent-glow: #ffd70099;
+  --accent-neon: #ffe100;
+  --glass: rgba(30, 30, 30, 0.85);
   --border: #2c2c2c;
-  --shadow: rgba(255, 140, 0, 0.15);
+  --shadow: rgba(255, 215, 0, 0.2);
   --transition: 0.3s ease;
   --max-width: 1200px;
   --font-main: 'Poppins', sans-serif;
@@ -27,6 +29,9 @@ body {
   color: var(--text-light);
   overflow-x: hidden;
   line-height: 1.6;
+  background-image: url('grid.svg'); /* Optional light grid bg */
+  background-size: cover;
+  background-blend-mode: overlay;
 }
 
 a {
@@ -45,13 +50,15 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
+  box-shadow: 0 2px 10px var(--shadow);
 }
 
 .logo {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
+  font-weight: 900;
   color: var(--accent);
-  font-weight: 800;
-  text-shadow: 0 0 12px var(--accent-light);
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow);
 }
 
 nav ul {
@@ -61,68 +68,101 @@ nav ul {
 }
 
 nav a {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
   transition: color var(--transition);
 }
 
 nav a:hover,
 nav a:focus {
   color: var(--accent);
-  text-shadow: 0 0 8px var(--accent-light);
+  text-shadow: 0 0 8px var(--accent-glow);
   outline: none;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(10, 10, 10, 0.9)),
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(10, 10, 10, 0.95)),
     url('banner.avif') center/cover no-repeat;
   border-radius: 12px;
   text-align: center;
   padding: 6rem 2rem;
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  opacity: 0.05;
+  z-index: 0;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   color: var(--accent);
-  text-shadow: 0 0 20px #000;
+  text-shadow: 0 0 20px #000, 0 0 10px var(--accent-dark);
+  position: relative;
+  z-index: 1;
 }
 
 .hero p {
   font-size: 1.4rem;
   margin-top: 1rem;
-  opacity: 0.9;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
 }
 
-/* Reusable Sections */
+/* Sections */
 section {
   max-width: var(--max-width);
   margin: 4rem auto;
   padding: 2rem;
 }
 
-/* Card Style */
+/* Card */
 .card {
   background: var(--glass);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
   border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 0 15px var(--shadow);
-  transition: transform var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 0 25px var(--accent-glow);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 100%);
+  opacity: 0.05;
+  pointer-events: none;
 }
 
 /* Headings */
 h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--accent);
   margin-bottom: 1.2rem;
   border-left: 4px solid var(--accent);
   padding-left: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Tournament Section */
@@ -133,27 +173,28 @@ h2 {
 }
 
 .tournament ul li::before {
-  content: "🔥";
+  content: "🎮 ";
   margin-right: 0.5rem;
+  color: var(--accent);
 }
 
 .tournament button {
   margin-top: 2rem;
-  padding: 1rem 2rem;
+  padding: 1rem 2.2rem;
   font-size: 1.1rem;
-  background: linear-gradient(to right, var(--accent), var(--accent-dark));
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
   border: none;
   border-radius: 8px;
   color: #111;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 10px var(--accent-dark);
+  box-shadow: 0 0 15px var(--accent-dark);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tournament button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--accent-dark);
+  transform: scale(1.06);
+  box-shadow: 0 0 25px var(--accent-dark);
 }
 
 /* Form Section */
@@ -167,15 +208,16 @@ form {
 input {
   padding: 0.9rem 1rem;
   border-radius: 6px;
-  border: 1px solid #333;
+  border: 1px solid #444;
   background-color: #1c1c1c;
   color: var(--text-light);
   font-size: 1rem;
-  transition: border var(--transition);
+  transition: border var(--transition), box-shadow var(--transition);
 }
 
 input:focus {
   border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
   outline: none;
 }
 
@@ -187,11 +229,13 @@ input:focus {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background var(--transition);
+  transition: all var(--transition);
+  box-shadow: 0 0 12px var(--accent-dark);
 }
 
 .register button:hover {
   background: var(--accent-light);
+  box-shadow: 0 0 18px var(--accent-glow);
 }
 
 #formMessage {
@@ -205,7 +249,7 @@ footer {
   text-align: center;
   padding: 2rem;
   background: var(--bg-darker);
-  color: #888;
+  color: #aaa;
   font-size: 0.9rem;
   border-top: 1px solid var(--border);
 }
@@ -213,7 +257,7 @@ footer {
 /* Responsive Layout */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
 
   nav ul {
