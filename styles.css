@@ -1,3 +1,19 @@
+/* Root Variables for Easy Theming */
+:root {
+  --bg-dark: #0d0d0d;
+  --bg-darker: #0a0a0a;
+  --text-light: #f2f2f2;
+  --accent: #FFA500;
+  --accent-dark: #FF8C00;
+  --accent-light: #FFB84D;
+  --glass: rgba(30, 30, 30, 0.8);
+  --border: #2c2c2c;
+  --shadow: rgba(255, 140, 0, 0.15);
+  --transition: 0.3s ease;
+  --max-width: 1200px;
+  --font-main: 'Poppins', sans-serif;
+}
+
 /* Reset & Base */
 * {
   margin: 0;
@@ -6,10 +22,11 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #0d0d0d, #1a1a1a);
-  color: #f2f2f2;
+  font-family: var(--font-main);
+  background: linear-gradient(to right, var(--bg-dark), #1a1a1a);
+  color: var(--text-light);
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 a {
@@ -23,8 +40,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background: #0a0a0a;
-  border-bottom: 1px solid #2a2a2a;
+  background: var(--bg-darker);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -32,9 +49,9 @@ header {
 
 .logo {
   font-size: 2.2rem;
-  color: #FFA500;
+  color: var(--accent);
   font-weight: 800;
-  text-shadow: 0 0 12px #FFA500aa;
+  text-shadow: 0 0 12px var(--accent-light);
 }
 
 nav ul {
@@ -45,19 +62,21 @@ nav ul {
 
 nav a {
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: color var(--transition);
 }
 
-nav a:hover {
-  color: #FFA500;
-  text-shadow: 0 0 8px #FFA50099;
+nav a:hover,
+nav a:focus {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-light);
+  outline: none;
 }
 
 /* Hero Section */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(10, 10, 10, 0.9)),
     url('banner.avif') center/cover no-repeat;
-  border-radius:12px;
+  border-radius: 12px;
   text-align: center;
   padding: 6rem 2rem;
   color: white;
@@ -65,8 +84,8 @@ nav a:hover {
 
 .hero h1 {
   font-size: 3.5rem;
+  color: var(--accent);
   text-shadow: 0 0 20px #000;
-  color: #FFA500;
 }
 
 .hero p {
@@ -75,33 +94,34 @@ nav a:hover {
   opacity: 0.9;
 }
 
-/* Sections */
+/* Reusable Sections */
 section {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 4rem auto;
   padding: 2rem;
 }
 
 /* Card Style */
 .card {
-  background: rgba(30, 30, 30, 0.8);
+  background: var(--glass);
   backdrop-filter: blur(8px);
   border-radius: 12px;
-  border: 1px solid #2c2c2c;
+  border: 1px solid var(--border);
   padding: 2rem;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.15);
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px var(--shadow);
+  transition: transform var(--transition);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
+/* Headings */
 h2 {
   font-size: 2rem;
-  color: #FFA500;
-  margin-bottom: 1rem;
-  border-left: 4px solid #FFA500;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+  border-left: 4px solid var(--accent);
   padding-left: 1rem;
 }
 
@@ -113,7 +133,7 @@ h2 {
 }
 
 .tournament ul li::before {
-  content: "🔥 ";
+  content: "🔥";
   margin-right: 0.5rem;
 }
 
@@ -121,19 +141,19 @@ h2 {
   margin-top: 2rem;
   padding: 1rem 2rem;
   font-size: 1.1rem;
-  background: linear-gradient(to right, #FFA500, #FF8C00);
+  background: linear-gradient(to right, var(--accent), var(--accent-dark));
   border: none;
   border-radius: 8px;
   color: #111;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 10px #FF8C00aa;
+  box-shadow: 0 0 10px var(--accent-dark);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tournament button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #FF8C00cc;
+  box-shadow: 0 0 15px var(--accent-dark);
 }
 
 /* Form Section */
@@ -149,29 +169,29 @@ input {
   border-radius: 6px;
   border: 1px solid #333;
   background-color: #1c1c1c;
-  color: #f0f0f0;
+  color: var(--text-light);
   font-size: 1rem;
-  transition: border 0.3s;
+  transition: border var(--transition);
 }
 
 input:focus {
-  border: 1px solid #FFA500;
+  border-color: var(--accent);
   outline: none;
 }
 
 .register button {
-  background: linear-gradient(to right, #FFA500, #FF8C00);
+  background: linear-gradient(to right, var(--accent), var(--accent-dark));
   color: #111;
   font-weight: bold;
   padding: 1rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background var(--transition);
 }
 
 .register button:hover {
-  background: #FFB84D;
+  background: var(--accent-light);
 }
 
 #formMessage {
@@ -184,13 +204,13 @@ input:focus {
 footer {
   text-align: center;
   padding: 2rem;
-  background: #0a0a0a;
+  background: var(--bg-darker);
   color: #888;
   font-size: 0.9rem;
-  border-top: 1px solid #2c2c2c;
+  border-top: 1px solid var(--border);
 }
 
-/* Responsive */
+/* Responsive Layout */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.2rem;
@@ -203,5 +223,9 @@ footer {
 
   .card {
     padding: 1.5rem;
+  }
+
+  section {
+    padding: 1rem;
   }
 }
